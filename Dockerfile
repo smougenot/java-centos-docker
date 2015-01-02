@@ -9,7 +9,8 @@ RUN yum install -y wget && \
       --header "Cookie: oraclelicense=accept-securebackup-cookie" \
       "$java_url" && \
     yum localinstall -y jdk*.rpm && \
-    yum clean all
+    yum clean all && \
+	rm -f jdk*.rpm
 
 # alternatives are not in the rpm
 RUN alternatives --install /usr/bin/java   java   /usr/java/jdk1.8.0_25/jre/bin/java 1000; \
